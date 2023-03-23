@@ -22,7 +22,7 @@ function Contact() {
 
   return (
     <>
-      <section className=" text-white flex justify-center py-20 lg:py-[120px] overflow-hidden relative z-10">
+      <section className=" text-white  flex justify-center py-20 lg:py-[120px] overflow-hidden relative z-10">
         <Link
           href="/"
           className="text-[#ff7f01] fixed top-5 left-5 hover:scale-125 hover:transition-transform transition-all"
@@ -70,7 +70,7 @@ function Contact() {
               </div>
             </div>
             <div className="w-full lg:w-1/2 xl:w-5/12 px-4">
-              <div className="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
+              <div className="bg-[#121212] relative rounded-lg p-8 sm:p-12 shadow-lg">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-6">
                     <input
@@ -80,9 +80,10 @@ function Contact() {
                           w-full
                           rounded
                           py-3
+                          bg-[#252525]
                           px-[14px]
-                          text-[#000]
-                          border border-[f0f0f0]
+                          text-white
+                          focus:border
                           outline-none
                           focus-visible:shadow-none
                           focus:border-[#ff7f01]
@@ -94,16 +95,17 @@ function Contact() {
                       type="email"
                       placeholder="Your Email"
                       className="
-                          w-full
-                          rounded
-                          py-3
-                          px-[14px]
-                          text-[#000]
-                          border border-[f0f0f0]
-                          outline-none
-                          focus-visible:shadow-none
-                          focus:border-[#ff7f01]
-                          "
+                      w-full
+                      rounded
+                      py-3
+                      bg-[#252525]
+                      px-[14px]
+                      text-white
+                      focus:border
+                      outline-none
+                      focus-visible:shadow-none
+                      focus:border-[#ff7f01]
+                      "
                       {...register("email", { required: true })}
                     />
                   </div>
@@ -113,17 +115,17 @@ function Contact() {
                       rows={6}
                       placeholder="Your Message"
                       className="
-                          w-full
-                          rounded
-                          py-3
-                          px-[14px]
-                          text-[#000]
-                          border border-[f0f0f0]
-                          resize-none
-                          outline-none
-                          focus-visible:shadow-none
-                          focus:border-[#ff7f01]
-                          "
+                      w-full
+                      rounded
+                      py-3
+                      bg-[#252525]
+                      px-[14px]
+                      text-white
+                      focus:border
+                      outline-none
+                      focus-visible:shadow-none
+                      focus:border-[#ff7f01]
+                      "
                       {...register("message", { required: true })}
                     ></textarea>
                   </div>
@@ -155,8 +157,8 @@ function Contact() {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M0 100C0 44.7715 0 0 0 0C55.2285 0 100 44.7715 100 100C100 100 100 100 0 100Z"
                         fill="#ff7f01"
                       />
