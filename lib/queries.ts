@@ -28,7 +28,7 @@ const techQuery = groq`
 const projectsQuery = groq`
   *[_type=="projects"] {
     ...,
-   } | order(_createdAt , asc)
+   } | order(idx , asc)
  `;
 
 const faqQuery = groq`

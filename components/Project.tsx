@@ -26,7 +26,7 @@ function Project({ project }: { project: ProjectType }) {
           height={500}
           src={urlFor(project.img).url()}
           alt={project.title}
-          className="group-hover:scale-110 group-hover:transition-transform transition-transform"
+          className=""
         />
         <div className="p-5">
           <div className="flex items-center">

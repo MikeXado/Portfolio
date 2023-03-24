@@ -5,6 +5,11 @@ export default {
   title: "Projects",
   fields: [
     {
+      name: "idx",
+      type: "number",
+      title: "Idx",
+    },
+    {
       name: "title",
       type: "string",
       title: "Title",
