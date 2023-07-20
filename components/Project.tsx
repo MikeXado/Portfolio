@@ -55,7 +55,7 @@ function Project({ project }: { project: ProjectType }) {
             {project.description}
           </p>
 
-          <ul className="grid md:grid-cols-3 grid-cols-2 gap-y-5 gap-x-5 col-auto  mt-5">
+          <ul className="grid md:grid-cols-3 items-start grid-cols-2 gap-y-5 gap-x-5 col-auto  mt-5">
             {project.techStack.map((tech) => {
               return (
                 <li
