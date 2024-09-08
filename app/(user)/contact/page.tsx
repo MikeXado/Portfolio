@@ -2,22 +2,19 @@
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { FieldValues, SubmitHandler } from "react-hook-form/dist/types";
+import { EmailData, transporter } from "../../../lib/utils-email/email.service";
+import { render } from "@react-email/components";
+import EmailHtml from "../../../lib/utils-email/email-html";
+import { sendEmailNotification } from "./action";
 function Contact() {
-  const { register, handleSubmit, reset } = useForm();
+  const [isPending, startTransition] = React.useTransition();
+  const { register, handleSubmit, reset } = useForm<EmailData>();
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    await fetch(`${process.env.NEXT_PUBLIC_ACTION_URL}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        data,
-      }),
+  const onSubmit = (data: EmailData) => {
+    startTransition(async () => {
+      await sendEmailNotification(data);
+      reset();
     });
-    reset();
   };
 
   return (
@@ -88,6 +85,7 @@ function Contact() {
                           focus-visible:shadow-none
                           focus:border-[#ff7f01]
                           "
+                      {...register("name", { required: true })}
                     />
                   </div>
                   <div className="mb-6">
@@ -131,6 +129,7 @@ function Contact() {
                   </div>
                   <div>
                     <button
+                      disabled={isPending}
                       type="submit"
                       className="
                           w-full
@@ -143,7 +142,7 @@ function Contact() {
                           hover:bg-opacity-90
                           "
                     >
-                      Send Message
+                      {isPending ? "Sending..." : "Send Message"}
                     </button>
                   </div>
                 </form>
