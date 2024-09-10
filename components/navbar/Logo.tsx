@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 function Logo({ logo }: { logo: string }) {
-  const com = logo.substring("GeekifiedMike".length);
+  const com = logo.substring("gurin-dev".length);
   const name = logo.substring(0, 13);
 
   return (
