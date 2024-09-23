@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <GoogleAnalytics gaId={process.env.MEASUREMENT_ID || ""} />
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_MEASUREMENT_ID || ""} />
       <body className={"bg-[#050505] pb-5 " + lato.className}>{children}</body>
     </html>
   );
