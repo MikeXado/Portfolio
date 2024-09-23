@@ -1,5 +1,6 @@
 import "../../styles/globals.css";
 import { Lato } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 export const metadata = {
   title: "Portfolio",
   description: "Gurin Mihail",
@@ -17,6 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId={process.env.MEASUREMENT_ID || ""} />
       <body className={"bg-[#050505] pb-5 " + lato.className}>{children}</body>
     </html>
   );
