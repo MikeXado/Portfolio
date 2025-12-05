@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_MEASUREMENT_ID || ""} />
-      <body className={"bg-[#050505] pb-5 " + lato.className}>{children}</body>
+      <body className={"bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 min-h-screen " + lato.className}>{children}</body>
     </html>
   );
 }

@@ -6,9 +6,9 @@ function Logo({ logo }: { logo: string }) {
   const name = logo.substring(0, 9);
 
   return (
-    <Link href="/" className="text-white text-lg font-extrabold">
-      <span>{name}</span>
-      <span className="text-[#ff7f01]">{com}</span>
+    <Link href="/" className="text-2xl font-extrabold hover:scale-105 transition-transform duration-300">
+      <span className="text-gray-900">{name}</span>
+      <span className="gradient-text">{com}</span>
     </Link>
   );
 }

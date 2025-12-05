@@ -6,76 +6,77 @@ import { ProjectType } from "../typings";
 
 function Project({ project }: { project: ProjectType }) {
   return (
-    <div className="relative md:max-w-lg group mx-auto max-w-lg px-2 py-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-[#121212]  dark:border-[#121212] ">
-      <div className="flex flex-col justify-between h-full">
-        <div>
+    <div className="group relative bg-white rounded-2xl shadow-soft hover:shadow-elegant transition-all duration-500 overflow-hidden border border-gray-100 card-hover h-full flex flex-col hover:border-blue-200">
+      <div className="relative overflow-hidden">
+        <div className="aspect-video relative">
           <Image
-            width={500}
-            height={500}
+            fill
             src={urlFor(project.img).url()}
             alt={project.title}
-            className=""
+            className="object-cover group-hover:scale-110 group-hover:rotate-2 transition-all duration-700"
           />
-          <div className="p-5 flex flex-col justify-between">
-            <div className="flex items-center">
-              <p className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                {project.title}
-              </p>
-              <span
-                className={
-                  "inline-flex items-center bg-green-100 text-green-800 text-xs ml-5 font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300" +
-                  (project.status === "done"
-                    ? " dark:bg-green-900 dark:text-green-300 bg-green-100 text-green-800"
-                    : "  bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300")
-                }
-              >
-                <span
-                  className={
-                    "w-2 h-2 mr-1 bg-green-500 rounded-full" +
-                    (project.status === "done"
-                      ? " bg-green-500"
-                      : " bg-red-500")
-                  }
-                ></span>
-                {project.status === "done" ? "Available" : "Working on"}
-              </span>
-            </div>
-
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              {project.description}
-            </p>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
-        <ul className="mt-auto grid md:grid-cols-3 items-start grid-cols-2 gap-y-5 gap-x-5 col-auto">
-          {project.techStack.map((tech) => {
-            return (
-              <li
-                className="bg-[#ff7f01] text-center text-md  font-semibold py-1 rounded-lg text-white"
-                key={tech}
-              >
-                {tech}
-              </li>
-            );
-          })}
-        </ul>
+        <div className="absolute top-4 right-4 transform group-hover:scale-110 transition-transform duration-300">
+          <span
+            className={
+              "inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg backdrop-blur-sm transition-all duration-300 " +
+              (project.status === "done"
+                ? "bg-green-100/90 text-green-800 border border-green-200"
+                : "bg-orange-100/90 text-orange-800 border border-orange-200")
+            }
+          >
+            <span
+              className={
+                "w-2 h-2 mr-1.5 rounded-full pulse-slow " +
+                (project.status === "done" ? "bg-green-500" : "bg-orange-500")
+              }
+            ></span>
+            {project.status === "done" ? "Live" : "In Progress"}
+          </span>
+        </div>
       </div>
 
-      <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-[#121212] opacity-0 group-hover:h-full group-hover:opacity-90 duration-300">
-        <div className="flex justify-between w-full px-10 items-center">
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-all duration-300 group-hover:translate-x-1">
+          {project.title}
+        </h3>
+        <p className="text-gray-600 mb-6 leading-relaxed flex-grow transition-all duration-300 group-hover:text-gray-800">
+          {project.description}
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.techStack.map((tech, index) => {
+            return (
+              <span
+                className="px-3 py-1.5 bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 text-sm font-medium rounded-lg border border-blue-100 hover:scale-110 hover:shadow-soft transition-all duration-300 hover:-translate-y-1"
+                key={tech}
+                style={{ transitionDelay: `${index * 50}ms` }}
+              >
+                {tech}
+              </span>
+            );
+          })}
+        </div>
+
+        <div className="flex gap-3 mt-auto">
           <Link
             href={project.previewLink}
-            className="mt-5 px-8 py-3 rounded-full text-white text-lg font-semibold border border-[#ff7f01] hover:bg-[#ff7f01] duration-300"
+            className="flex-1 text-center px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-glow transition-all duration-500 hover:scale-105 hover:-translate-y-1 relative overflow-hidden group/btn"
           >
-            Preview
+            <span className="relative z-10">Live Demo</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></div>
           </Link>
           <Link
             href={project.githubLink}
-            className="mt-5 px-8 py-3 rounded-full text-white text-lg font-semibold  border border-[#ff7f01] hover:bg-[#ff7f01] duration-300"
+            className="flex-1 text-center px-4 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-500 hover:scale-105 hover:-translate-y-1 hover:shadow-soft"
           >
-            Github
+            GitHub
           </Link>
         </div>
       </div>
+
+      <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-500/50 rounded-2xl transition-all duration-500 pointer-events-none"></div>
     </div>
   );
 }

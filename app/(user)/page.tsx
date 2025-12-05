@@ -25,8 +25,8 @@ export default async function Page() {
   const servicesData = await client.fetch(servicesQuery);
   return (
     <main>
-      <div className="max-w-7xl mx-auto pt-5 px-5">
-        <Navbar logo={logoData} links={linksData} />
+      <Navbar logo={logoData} links={linksData} />
+      <div className="max-w-7xl mx-auto pt-2 px-5">
         <Hero heroData={heroData} />
       </div>
       <Tech techData={techData} />
