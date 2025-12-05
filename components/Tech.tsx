@@ -5,7 +5,7 @@ import { TechType } from "../typings";
 
 function Tech({ techData }: { techData: TechType[] }) {
   return (
-    <section id="tech" className="relative py-20 w-full mt-24 overflow-hidden">
+    <section id="tech" className="relative py-10 w-full mt-10 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50"></div>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIuNSIgb3BhY2l0eT0iLjA1Ii8+PC9nPjwvc3ZnPg==')] opacity-40"></div>
 
@@ -20,7 +20,8 @@ function Tech({ techData }: { techData: TechType[] }) {
             Technologies I <span className="gradient-text">Work With</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Leveraging modern tools and frameworks to build exceptional digital experiences
+            Leveraging modern tools and frameworks to build exceptional digital
+            experiences
           </p>
         </div>
 

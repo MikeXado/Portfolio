@@ -3,10 +3,7 @@ import { ServiceType } from "../typings";
 
 function Services({ servicesData }: { servicesData: ServiceType[] }) {
   return (
-    <section
-      id="services"
-      className="max-w-7xl mx-auto mt-32 px-5 py-16"
-    >
+    <section id="services" className="max-w-7xl mx-auto mt-10 px-5 py-10">
       <div className="lg:flex gap-16 items-start">
         <div className="lg:w-1/2 lg:sticky lg:top-24 slide-in-left">
           <div className="inline-block mb-4 zoom-in">
@@ -35,9 +32,9 @@ function Services({ servicesData }: { servicesData: ServiceType[] }) {
               </svg>
             </div>
             <p className="text-gray-600 text-lg leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-              I help ambitious businesses generate more profits by building awareness,
-              driving web traffic, connecting with customers, and growing overall sales through
-              innovative digital solutions.
+              I help ambitious businesses generate more profits by building
+              awareness, driving web traffic, connecting with customers, and
+              growing overall sales through innovative digital solutions.
             </p>
           </div>
         </div>
